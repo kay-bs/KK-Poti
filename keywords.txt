@@ -1,0 +1,41 @@
+#######################################
+# Syntax Coloring Map Switch
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Poti    KEYWORD1   Poti
+StablePoti    KEYWORD1   StablePoti
+MappedPoti    KEYWORD1   MappedPoti
+CenteredPoti    KEYWORD1   CenteredPoti
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+hasChanged	KEYWORD2
+reset	KEYWORD2
+getMapping	KEYWORD2
+getStabilizedRawValue	KEYWORD2
+getRawValue	KEYWORD2
+getNumMappingValues	KEYWORD2
+getValue	KEYWORD2
+getMappedValue	KEYWORD2
+getPrevValue	KEYWORD2
+getMappedPrevValue	KEYWORD2
+getCenteredValue	KEYWORD2
+getCenteredMappedValue	KEYWORD2
+getCenteredPrevValue	KEYWORD2
+getCenteredMappedPrevValue	KEYWORD2
+setMaxAnalogValue	KEYWORD2
+getMaxAnalogValue	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+POTI_VALUE_UNDEFINED	LITERAL1
+POTI_MAPPING_UNDEFINED	LITERAL1
+
