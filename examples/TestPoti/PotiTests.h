@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
   under the MIT License (MIT)
 */
 

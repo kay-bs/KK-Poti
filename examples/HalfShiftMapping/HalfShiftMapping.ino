@@ -3,20 +3,27 @@
   under the MIT License (MIT)
 */
 
-#include <CenteredPoti.h>
+#include <HalfShiftMappedPoti.h>
 
 /*
-  Example to show the usage of a potentiometer
-  with defined mapping and center position.
+  Example to generate mapped values from
+  raw input based on an analog input pin.
 
-  The variable value of the analog pin will change the speed
-  of blinking of the build in LED. 
+  The mapping algorithm will be most suitable
+  for mapping predefined and expected analog values
+  with equal difference to mapping values.
+  E.g. for 0V, 1V, ... , 4 V and 5V to 6 mapping
+  values.
+
+  The variable value of the analog pin will change
+  the speed of blinking of the build in LED. 
 
   The example reduces the effect of instability
   of measured values over the time, when the
   potentiometer is not touched by using a
   mapping. In the example are the other available
-  stabilisation methods not configured, means in use. 
+  stabilisation methods not configured, means not
+  in use. 
 
   Prerequisite is an potentiometer connected
   with variable voltage pin to analog input
@@ -26,13 +33,11 @@
 */
 
 #define INPUT_PIN A7                  // must be analog pin A0 to A7
-#define NUM_MAP_VALUES 11             // max 101, raw values will be mapped to this uneven number of mapping values
+#define NUM_MAP_VALUES 10             // max 101, raw values will be mapped to this number of mapping values
 #define READ_CYCLE_MILLIS 100         // minimum difference between two actual read of analog raw value
 #define MAX_BLINK_CYCLE_MILLIS 1000   // min allowed is 1000
-#define CENTER_VAL 512                // assumed middle position / center of the potentiometer
-#define CENTER_TOL 50                 // tolerance for middle position / center 
 
-CenteredPoti pot = CenteredPoti(INPUT_PIN, READ_CYCLE_MILLIS, 0, 0, NUM_MAP_VALUES, 0, CENTER_TOL, CENTER_VAL);
+HalfShiftMappedPoti pot = HalfShiftMappedPoti(INPUT_PIN, READ_CYCLE_MILLIS, 0, 0, NUM_MAP_VALUES, 0);
 
 // Status on or off independently of blinking
 boolean lightOn = false;
@@ -53,36 +58,36 @@ void setup() {
 
 // for showing relevant information
 void printValues(){
-  Serial.print("curCenterVal=");
-  if(pot.getCenteredValue() == POTI_VALUE_UNDEFINED){
+  Serial.print("curVal=");
+  if(pot.getValue() == POTI_VALUE_UNDEFINED){
     Serial.print("POTI_VALUE_UNDEFINED");
   }
   else{
-    Serial.print(pot.getCenteredValue());
+    Serial.print(pot.getValue());
   }
 
-  Serial.print(", curCenterMapVal=");
-  if(pot.getCenteredMappedValue() == POTI_MAPPING_UNDEFINED){
+  Serial.print(", curMapVal=");
+  if(pot.getMappedValue() == POTI_MAPPING_UNDEFINED){
     Serial.print("POTI_MAPPING_UNDEFINED");
   }
   else{
-    Serial.print(pot.getCenteredMappedValue());
+    Serial.print(pot.getMappedValue());
   }
 
-  Serial.print(", prevCenterVal=");
-  if(pot.getCenteredPrevValue() == POTI_VALUE_UNDEFINED){
+  Serial.print(", prevVal=");
+  if(pot.getPrevValue() == POTI_VALUE_UNDEFINED){
     Serial.print("POTI_VALUE_UNDEFINED");
   }
   else{
-    Serial.print(pot.getCenteredPrevValue());
+    Serial.print(pot.getPrevValue());
   }
 
-  Serial.print(", prevCenterMapVal=");
-  if(pot.getCenteredMappedPrevValue() == POTI_MAPPING_UNDEFINED){
+  Serial.print(", prevMapVal=");
+  if(pot.getMappedPrevValue() == POTI_MAPPING_UNDEFINED){
     Serial.print("POTI_MAPPING_UNDEFINED");
   }
   else{
-    Serial.print(pot.getCenteredMappedPrevValue());
+    Serial.print(pot.getMappedPrevValue());
   }
 
   Serial.print("\n");
@@ -111,8 +116,7 @@ void loop() {
 
   // react on changing states by calculating the cycle duration new
   if(pot.hasChanged()){
-    cycleDurationMillis = MAX_BLINK_CYCLE_MILLIS / (NUM_MAP_VALUES / 2 + 1 + pot.getCenteredMappedValue());
+    cycleDurationMillis = MAX_BLINK_CYCLE_MILLIS / (NUM_MAP_VALUES - pot.getMappedValue());
     printValues();
   }
 }
-

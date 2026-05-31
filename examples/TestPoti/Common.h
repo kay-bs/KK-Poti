@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
   under the MIT License (MIT)
 */
 
@@ -13,6 +13,7 @@
 #define ID_STABLETEST 2
 #define ID_MAPPEDTEST 3
 #define ID_CENTEREDTEST 4
+#define ID_HALFSHIFTMAPPEDTEST 5
 #define INPUT_PIN A7                  // must be analog pin A0 to A7
 #define READ_CYCLE_MILLIS 100         // minimum difference between two actual read of analog raw value
 

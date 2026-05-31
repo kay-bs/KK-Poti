@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
   under the MIT License (MIT)
 */
 
@@ -8,6 +8,7 @@
 #include "PotiTests.h"
 #include "StablePotiTests.h"
 #include "MappedPotiTests.h"
+#include "HalfShiftMappedPotiTests.h"
 #include "CenteredPotiTests.h"
 
 /*
@@ -35,5 +36,6 @@ void loop() {
   doStablePotiTest(ID_STABLETEST);
   doMappedPotiTest(ID_MAPPEDTEST);
   doCenteredPotiTest(ID_CENTEREDTEST);
+  doHalfShiftMappedPotiTest(ID_HALFSHIFTMAPPEDTEST);
   delay(3000);
 }

@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
   under the MIT License (MIT)
 */
 
@@ -8,6 +8,10 @@
 /*
   Example to generate mapped values from
   raw input based on an analog input pin.
+
+  The mapping algorithm will, in case of not
+  used stretching, try to map an equal number
+  of raw input values to each mapping value.
 
   The variable value of the analog pin will change
   the speed of blinking of the build in LED. 

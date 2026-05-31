@@ -1,25 +1,25 @@
 /*
-  The MIT License (MIT)
+  MIT License
 
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
 
-  Permission is hereby granted, free of charge, to any person obtaining a
-  copy of this software and associated documentation files (the “Software”),
-  to deal in the Software without restriction, including without limitation
-  the rights to use, copy, modify, merge, publish, distribute, sublicense,
-  and/or sell copies of the Software, and to permit persons to whom the
-  Software is furnished to do so, subject to the following conditions:
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included
-  in all copies or substantial portions of the Software.
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
 
-  The Software is provided “as is”, without warranty of any kind, express
-  or implied, including but not limited to the warranties of merchantability,
-  fitness for a particular purpose and noninfringement. In no event shall
-  the authors or copyright holders be liable for any claim, damages or other
-  liability, whether in an action of contract, tort or otherwise, arising
-  from, out of or in connection with the software or the use or other dealings
-  in the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
 */
 
 #ifndef POTI
@@ -58,7 +58,7 @@
 
   Raw input value measurements (by function getRawValue()) is based on a slow
   analog to digital conversion (about 100 nanos in Arduinos). Therefore the
-  number of calls of getRawState() calls can optionally be reduced to a minimum
+  number of calls of getRawState() can optionally be reduced to a minimum
   with an included logic that implements a minimum time delay between the calls
   of getRawValue().
 
@@ -74,7 +74,7 @@
   average potentiometer, that the measured analog values may change from one
   to the next measurement even if the potentiometer was not touched in the
   meantime. The variation of the raw values depends on thermical topics,
-  mechanical topic (e.g. vibrations), varying power supply voltage (even a
+  mechanical topics (e.g. vibrations), varying power supply voltage (even a
   blinking LED may be a reason) and so on.
 
   Linear and logarithmical potentiometers are supported by Poti class. But "linear"

@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
   under the MIT License (MIT)
 */
 
@@ -7,6 +7,7 @@
 #define CLASSES_TESTPOTI
 
 #include "CenteredPoti.h"
+#include "HalfShiftMappedPoti.h"
 
 /*
   Subclass of class Poti, that implements functionality for testing.
@@ -71,7 +72,6 @@ class TestStablePoti : public StablePoti {
     }
 };
 
-
 /*
   Subclass of class MappedPoti, that implements functionality for testing.
 */
@@ -123,6 +123,69 @@ class TestMappedPoti : public MappedPoti {
       if(_numMapping < 2){
         _numMapping = 2;
       }
+    }
+
+    void setStretch(uint8_t stretch){
+      _stretch = stretch;
+      if(_stretch > 20){
+        _stretch = 20;
+      }
+    }
+};
+
+/*
+  Subclass of class HalfShiftMappedPoti, that implements functionality for testing.
+*/
+class TestHalfShiftMappedPoti : public HalfShiftMappedPoti {
+  private:
+    int _internalValue;
+
+  public:
+    TestHalfShiftMappedPoti(uint8_t inputPin, uint8_t readCycleMillis,
+                  uint8_t weightPrev, uint8_t addNumRawAvg,
+                  uint8_t numMapping, uint8_t stretch)
+      : HalfShiftMappedPoti(inputPin, readCycleMillis,
+                  weightPrev, addNumRawAvg,
+                  numMapping, stretch){};
+
+    int getRawValue(){
+      return _internalValue;
+    }
+
+    void setRawValue(int value){
+      _internalValue = value;
+    }
+
+    void setReadCycleMillis(uint8_t readCycleMillis){
+      _readCycleMillis = readCycleMillis;
+    }
+
+    void setAddNumRawAvg(uint8_t addNumRawAvg){
+      _addNumRawAvg = addNumRawAvg;
+      if(_addNumRawAvg > 7){
+        _addNumRawAvg = 7;
+      }
+    }
+
+    void setWeightPrev(uint8_t weightPrev){
+      _weightPrev = weightPrev;
+      if(_weightPrev > 12){
+        _weightPrev = 12;
+      }
+    }
+
+    void setNumMapping(uint8_t numMapping){
+      _numMapping = numMapping;
+
+      if(_numMapping > 100){
+        _numMapping = 100;
+      }
+
+      if(_numMapping < 2){
+        _numMapping = 2;
+      }
+
+      _numMapping = (_numMapping - 1) * 2;
     }
 
     void setStretch(uint8_t stretch){
@@ -215,3 +278,4 @@ class TestCenteredPoti : public CenteredPoti {
 };
 
 #endif
+

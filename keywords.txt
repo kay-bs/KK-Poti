@@ -9,6 +9,7 @@
 Poti    KEYWORD1   Poti
 StablePoti    KEYWORD1   StablePoti
 MappedPoti    KEYWORD1   MappedPoti
+HalfShiftMappedPoti    KEYWORD1   HalfShiftMappedPoti
 CenteredPoti    KEYWORD1   CenteredPoti
 
 #######################################

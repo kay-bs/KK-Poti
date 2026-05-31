@@ -1,25 +1,25 @@
 /*
-  The MIT License (MIT)
+  MIT License
 
-  Copyright (c) 2025 Kay Kasper
+  Copyright (c) 2025-2026 Kay Kasper
 
-  Permission is hereby granted, free of charge, to any person obtaining a
-  copy of this software and associated documentation files (the “Software”),
-  to deal in the Software without restriction, including without limitation
-  the rights to use, copy, modify, merge, publish, distribute, sublicense,
-  and/or sell copies of the Software, and to permit persons to whom the
-  Software is furnished to do so, subject to the following conditions:
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included
-  in all copies or substantial portions of the Software.
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
 
-  The Software is provided “as is”, without warranty of any kind, express
-  or implied, including but not limited to the warranties of merchantability,
-  fitness for a particular purpose and noninfringement. In no event shall
-  the authors or copyright holders be liable for any claim, damages or other
-  liability, whether in an action of contract, tort or otherwise, arising
-  from, out of or in connection with the software or the use or other dealings
-  in the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
 */
 
 #ifndef MAPPED_POTI
@@ -77,7 +77,7 @@
   one mapping value. As a consequence the movement in the middle is bigger
   and to the edges is smaller for one mapping value than with linear mapping.
 
-  In general it is still relevant ot have stable analog input values for
+  In general it is still relevant to have stable analog input values for
   MappedPoti because often changing analog values at the border of two
   mapping values may cause permanent changing of mapping values. Therefore
   MappedPoti is based on StablePoti.
@@ -356,7 +356,7 @@ class MappedPoti : public StablePoti {
     */
     bool hasChanged(){
       int internalPrevVal = _prevValueInternal;
-      int rawValue = StablePoti::getStabilizedRawValue();
+      int rawValue = getStabilizedRawValue();
       uint8_t mapValue;
 
       if(rawValue == POTI_VALUE_UNDEFINED){
