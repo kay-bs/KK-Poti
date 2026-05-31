@@ -26,6 +26,25 @@ Advantages
     •stabilization (against often small changes) of values (optional) 
     •support for potentiometers with a center position (optional) 
 
+## Version History
+<table>
+  <tr>
+	<th>Version</th>
+	<th>Released</th>
+	<th>Comment</th>
+  </tr>
+  <tr>
+	<td>1.0.0</td>
+	<td>20.11.2025</td>
+	<td>First release with full functionality</td>
+  </tr>
+  <tr>
+	<td>1.1.0</td>
+	<td>01.06.2026</td>
+	<td>Added new HalfShiftMappedPoti class. Correction of several comment and documentation issues.</td>
+  </tr>
+</table>
+
 ## Installation
 The library can be installed via Arduino Library Manager or by downloading the [archive](library/KK-Poti.zip) from directory „library“ and unpacking the archive in IDEs libraries directory.
 
